@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>Choixdej</title>
+</head>
+<body id="page-top" class="index">
+
+        Heureux de te revoir {{ user.username }} !
+
+          <a href="{% url 'groupe' %}">Groupe</a>
+
+          <a href="{% url 'vote' %}">Vote</a>
+
+          <a href="{% url 'ajoutrestaurant' %}">Ajouter Restaurant</a>
+
+            <a href="{% url 'deco' %}">Deconnexion</a>
+</body>
+
+</html>

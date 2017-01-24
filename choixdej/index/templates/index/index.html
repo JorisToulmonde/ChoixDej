@@ -1,0 +1,13 @@
+<form method="post" action="">
+                                      {% csrf_token %}
+                                      <div class="form-group">
+                                                   <input type="text" class="form-control" placeholder="Ton pseudo *" id= {{ form.username }}
+                                                   <p class="help-block text-danger"></p>
+                                      </div>
+                                      <div class="form-group">
+                                                  <input type="password" class="form-control" placeholder="Ton mot de passe *" id= {{ form.password }}
+                                                  <p class="help-block text-danger"></p>
+                                      </div>
+                                    <input class="btn btn-xl" type="submit" value="Se connecter" />
+                                    <a href="/inscription"><button type="button" class="btn btn-xl">Inscription</button></a>
+                                    </form>

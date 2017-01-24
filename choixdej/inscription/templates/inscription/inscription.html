@@ -1,0 +1,17 @@
+<form method="post" action=".">
+                        {% csrf_token %}
+
+                        <p>{{ form.username.errors }}<label for="{{form.username.id_for_label}}"></label>
+                            <input class="form-control" placeholder="Ton pseudo *" id="username" type="text" name="username" maxlength="100" /></p>
+
+                        <p>{{ form.email.errors }}<label for="{{form.email.id_for_label}}"></label>
+                            <input class="form-control" placeholder="Ton adresse mail *" id="email" type="text" name="email" maxlength="100" /></p>
+                            {{ form.non_field_errors }}
+                        <p>{{ form.password1.errors }}<label for="{{form.password1.id_for_label}}"></label>
+                            <input class="form-control" placeholder="Ton mot de passe *" id="password1" type="password" name="password1" maxlength="100" /></p>
+
+                        <p>{{ form.password2.errors }}<label for="{{form.password2.id_for_label}}"></label>
+                            <input class="form-control" placeholder="Confirmation mot de passe *" id="password2" type="password" name="password2" maxlength="100" /></p>
+
+                      <input class="btn btn-xl" type="submit" value="Valider Inscription" />
+  </form>
