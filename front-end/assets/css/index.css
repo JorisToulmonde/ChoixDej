@@ -1,5 +1,8 @@
 body{
-	background : #efefef;
+	background:url("../images/wallpaper.jpg") no-repeat fixed center;
+	background-size: 1920px 1080px;
+	color : white;
+	padding : 15px;
 	width:100%;
 
 }
@@ -28,43 +31,17 @@ body{
 }
 
 
-.navbar a{
-    color : white;
-    text-decoration: none;
-
-}
-
-.bg-primary .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    background-color: red;
-    color: #FFC0CB;
-}
-
-#nom-resto{
-    text-align: center;
-}
-
-#resto{
-    width:100%;
-}
-.go{
-    text-align: center;
-}
-
-.go .btn {
-    width: 20%;
-}
-
 
 ::-webkit-input-placeholder {
    text-align: center;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   text-align: center;
+   text-align: center;  
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   text-align: center;
+   text-align: center;  
 }
 
 .sub{
