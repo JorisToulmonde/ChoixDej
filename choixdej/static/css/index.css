@@ -1,0 +1,49 @@
+body{
+	background:url("../images/wallpaper.jpg") no-repeat fixed center;
+	background-size: 1920px 1080px;
+	color : white;
+	padding : 15px;
+	width:100%;
+
+}
+
+
+.container{
+	width:100%;
+	margin:0 ;
+	padding-left: 5%;
+	padding-right:5%;
+}
+
+.inscription{
+	background : rgba(50,50,50,0.6);
+	border-radius: 20%;
+	text-align: center;
+	padding: 50px;
+}
+
+
+.connexion{
+	background : rgba(50,50,50,0.6);
+	border-radius: 20%;
+	text-align: center;
+	padding: 50px;
+}
+
+
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+.sub{
+	text-align: center;
+}

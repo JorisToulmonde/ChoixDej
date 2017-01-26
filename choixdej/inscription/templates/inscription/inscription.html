@@ -1,17 +1,74 @@
-<form method="post" action=".">
-                        {% csrf_token %}
+<!doctype html>
+<html>
 
-                        <p>{{ form.username.errors }}<label for="{{form.username.id_for_label}}"></label>
-                            <input class="form-control" placeholder="Ton pseudo *" id="username" type="text" name="username" maxlength="100" /></p>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Team ChoixDej">
+        <title>Index - ChoixDej</title>
 
-                        <p>{{ form.email.errors }}<label for="{{form.email.id_for_label}}"></label>
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+        <link href="/static/css/index.css" rel="stylesheet" type="text/css">
+        <!-- Respond.js IE8 support of media queries -->
+    	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    	<!--[if lt IE 9]>
+    		<script src="assets/js/respond.min.js"></script>
+    	<![endif]-->
+    </head>
+
+    <body>
+        <header>
+
+            <h2>  <img src="/static/images/logo.png" width="150" alt="logo"/>ChoixDej ! </h2>
+        </header>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 inscription">
+                  <form method="post" action=".">
+                    {% csrf_token %}
+                    <h1> S'inscrire </h1>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Nom</label>
+                        <div class="col-10">
+                            <p>{{ form.username.errors }}<label for="{{form.username.id_for_label}}"></label>
+                            <input class="form-control" placeholder="Deschamps Frédéric" id="username" type="text" name="username" maxlength="100" /></p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-email-input" class="col-2 col-form-label">Adresse mail</label>
+                        <div class="col-10">
+                            <p>{{ form.email.errors }}<label for="{{form.email.id_for_label}}"></label>
                             <input class="form-control" placeholder="Ton adresse mail *" id="email" type="text" name="email" maxlength="100" /></p>
-                            {{ form.non_field_errors }}
-                        <p>{{ form.password1.errors }}<label for="{{form.password1.id_for_label}}"></label>
-                            <input class="form-control" placeholder="Ton mot de passe *" id="password1" type="password" name="password1" maxlength="100" /></p>
-
-                        <p>{{ form.password2.errors }}<label for="{{form.password2.id_for_label}}"></label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-password-input" class="col-2 col-form-label">Mot de Passe</label>
+                        {{ form.non_field_errors }}
+                        <div class="col-10">
+                            <p>{{ form.password1.errors }}<label for="{{form.password1.id_for_label}}"></label>
+                              <input class="form-control" placeholder="Ton mot de passe *" id="password1" type="password" name="password1" maxlength="100" /></p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-password-input" class="col-2 col-form-label">Confirmation de mot de passe</label>
+                        <div class="col-10">
+                            <p>{{ form.password2.errors }}<label for="{{form.password2.id_for_label}}"></label>
                             <input class="form-control" placeholder="Confirmation mot de passe *" id="password2" type="password" name="password2" maxlength="100" /></p>
+                        </div>
+                    </div>
+                    <div class="form-group sub">
+                        <input class="btn btn-info" type="submit" value="Envoyer !" />
+                    </div>
+                  </form>
+                  <a href="/index"><button class="btn btn-warning"> Déjà un compte ? Connecte toi ! </button></a>
+                </div>
 
-                      <input class="btn btn-xl" type="submit" value="Valider Inscription" />
-  </form>
+            </div>
+        </div>
+
+
+    </body>
+</html>
