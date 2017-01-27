@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'choixdej',
 	    'USER': 'root',
-	    'PASSWORD': 'platines72',
+	    'PASSWORD': 'ba7tit19',
 	    'HOST': '127.0.0.1',
 	    'PORT': '',
     }
@@ -129,3 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+	'/home/ordipass/Bureau/ChoixDej/choixdej/static/',
+)

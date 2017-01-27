@@ -1,13 +1,65 @@
-<form method="post" action="">
-                                      {% csrf_token %}
-                                      <div class="form-group">
-                                                   <input type="text" class="form-control" placeholder="Ton pseudo *" id= {{ form.username }}
-                                                   <p class="help-block text-danger"></p>
-                                      </div>
-                                      <div class="form-group">
-                                                  <input type="password" class="form-control" placeholder="Ton mot de passe *" id= {{ form.password }}
-                                                  <p class="help-block text-danger"></p>
-                                      </div>
-                                    <input class="btn btn-xl" type="submit" value="Se connecter" />
-                                    <a href="/inscription"><button type="button" class="btn btn-xl">Inscription</button></a>
-                                    </form>
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Team ChoixDej">
+        <title>Index - ChoixDej</title>
+
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+        <link href="/static/css/index.css" rel="stylesheet" type="text/css">
+        <!-- Respond.js IE8 support of media queries -->
+    	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    	<!--[if lt IE 9]>
+    		<script src="assets/js/respond.min.js"></script>
+    	<![endif]-->
+    </head>
+
+    <body>
+        <header>
+
+            <h2><img src="/static/images/logo.png" width="150" alt="logo"/>ChoixDej ! </h2>
+        </header>
+
+
+        <div class="container">
+            <div class="row">
+              <form method="post" action="">
+                {% csrf_token %}
+                <div class="col-xs-12 col-md-12 connexion">
+                    <h1> Se connecter </h1>
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Identifiant / Mail</label>
+                        <div class="col-10">
+                              <input type="text" class="form-control" placeholder="j.deschamps@gmail.com" id= {{ form.username }}
+                              <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="example-password-input" class="col-2 col-form-label">Mot de Passe</label>
+                        <div class="col-10">
+                              <input type="password" class="form-control" placeholder="Ton mot de passe *" id= {{ form.password }}
+                                <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                      <input class="btn btn-info" type="submit" value="Se connecter" />
+                      <a href="/inscription"><button type="button" class="btn btn-warning">Pas de compte ? Inscrit toi ! </button></a>
+              </form>
+
+
+                    <!--<div class="form-group sub">
+                        <button type="submit" class="btn btn-info">Connexion !</button>
+                        <button class="btn btn-warning"> <a href="inscription.html">Pas de compte ? Inscrit toi ! </a></button>
+                    </div>-->
+
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>
