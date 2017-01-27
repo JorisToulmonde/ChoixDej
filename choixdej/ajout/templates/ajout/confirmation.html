@@ -19,6 +19,8 @@
 
     <body>
         <header>
+
+
             <nav class="navbar  bg-primary navbar-static-top">
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -34,30 +36,28 @@
                             <a href="#"><h3>  <img src="/static/images/logo.png" width="30" alt="logo"/>ChoixDej ! </h3></a>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/home">Accueil</a></li>
+                            <li><a href="{% url 'accueil' %}">Accueil</a></li>
                             <li><a href="{% url 'groupe' %}">Gestion groupes </a></li>
                             <li><a href="{% url 'vote' %}">Noter</a></li>
-                            <li><a href="{% url 'ajoutrestaurant' %}">Ajouter Resto</a></li>
+                            <li><a href="{% url 'ajout' %}">Ajouter Resto</a></li>
                             <li><a href="{% url 'deco' %}">Déconnexion</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
             </nav>
         </header>
-        <div class="row">
-            <div class="img-resto col-md-6 col-md-offset-3">
-                  {% for img in image %}
-                    <img id="resto" src="{{ img.image.url }}" />
-                    <br/>
-                    <h1 id="nom-resto"> {{ img.titre }} </h1>
-                    <h3 id="adresse-resto"> {{ img.adresse }} </h3>
-                  {% endfor %}
+       <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 ">
+
+
+                      <p>Merci d'avoir ajouter un nouveau restaurant !!!</p>
+
+
+                </div>
+
             </div>
         </div>
 
-        <div class="form-group go">
-            <button type="submit" class="btn btn-info">J'y vais !</button>
-            <button type="submit" class="btn btn-warning"> Nope !</button>
-        </div>
-    </body>
+  </body>
 </html>

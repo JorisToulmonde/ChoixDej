@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'choixdej',
 	    'USER': 'root',
-	    'PASSWORD': 'ba7tit19',
+	    'PASSWORD': 'platines72',
 	    'HOST': '127.0.0.1',
 	    'PORT': '',
     }
@@ -133,3 +133,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
 	'/home/ordipass/Bureau/ChoixDej/choixdej/static/',
 )
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'restaurant')
+MEDIA_URL = '/restaurant/'
