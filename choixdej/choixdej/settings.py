@@ -131,5 +131,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-	'/home/ordipass/Bureau/ChoixDej/choixdej/static/',
+	'/home/amine/Bureau/S2/Projet/ChoixDej/choixdej/static/',
+
 )
