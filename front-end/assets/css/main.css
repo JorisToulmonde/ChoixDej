@@ -70,3 +70,17 @@ body{
 .sub{
 	text-align: center;
 }
+
+.grp{
+	vertical-align: middle;
+	padding-top: 20px;
+}
+
+
+.gestionGrp{
+	text-align: center;
+}
+
+.funkyradio{
+	margin-bottom: 5%;
+}
