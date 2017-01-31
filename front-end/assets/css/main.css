@@ -84,3 +84,21 @@ body{
 .funkyradio{
 	margin-bottom: 5%;
 }
+
+.creerGrp{
+	text-align: center;
+	padding:20px;
+}
+
+.sub2{
+	margin-top: 5%;
+}
+
+#nomGrp{
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.formCreationGrp{
+	margin-top: 5%;
+}
