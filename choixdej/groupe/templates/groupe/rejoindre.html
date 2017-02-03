@@ -1,17 +1,96 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html>
 
-<head>
-    <title>Choixdej</title>
-</head>
-<body id="page-top" class="index">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Team ChoixDej">
+        <title>Index - ChoixDej</title>
 
-        Viens rejoindre un groupe.
-      </br>
-        <a href="{% url 'creer' %}">Creer un groupe</a>
-        </br>
-        <a href="{% url 'accueil' %}">Accueil</a>
-          <a href="{% url 'deco' %}">Deconnexion</a>
-</body>
 
+
+
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/static/css/styles.css" rel="stylesheet" type="text/css">
+        <link href="/static/css/radiobutton.css" rel="stylesheet" type="text/css">
+        <!-- Respond.js IE8 support of media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="/static/js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <header>
+
+
+            <nav class="navbar  bg-primary navbar-static-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <a href="#"><h3>  <img src="/static/images/logo.png" width="30" alt="logo"/>ChoixDej ! </h3></a>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{% url 'accueil' %}">Accueil</a></li>
+                            <li><a href="{% url 'groupe' %}">Gestion groupes </a></li>
+                            <li><a href="{% url 'vote' %}">Noter</a></li>
+                            <li><a href="{% url 'ajoutrestaurant' %}">Ajouter Resto</a></li>
+                            <li><a href="{% url 'deco' %}">Déconnexion</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </nav>
+        </header>
+
+
+        <div class="gestionGrp">
+                    <h2> Mes Groupes </h2>
+
+                    {% for grp in allgroupes %}
+                    <div class="row test">
+
+                        <div class="col xs-2 col-md-1 col-md-offset-4">
+                          
+                            <input type="radio" name={{grp.id}} id={{grp.id}} />
+                            <label for={{grp.id}}> .</label>
+
+                        </div>
+                        <div class="col-md-2">
+                            <h4 class="grp"> {{ grp.nom_groupes }} </h4>
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+            <a href="{% url 'creer' %}"><button type="button" class="btn btn-primary"> Créer un Groupe !</button></a>
+
+            <h3> Pour rejoindre un groupe, rentrez le nom </h3>
+          <form method="post" action="">
+              {% csrf_token %}
+            <p>{{ form.nomgroupe.errors }}<label for="{{form.nomgroupe.id_for_label}}"></label>
+            <input id="nomgroupe" type="text" name="nomgroupe" maxlength="50" /></p>
+            <input class="btn btn-info" type="submit" value="Rejoindre le groupe" />
+          </form>
+          </div>
+
+
+        <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.rateyo.js"></script>
+        <script>
+            $(function() {
+              $().button('toggle');
+             });
+
+        </script>
+
+    </body>
 </html>

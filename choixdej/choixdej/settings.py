@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'star_ratings',
     'index',
     'inscription',
     'home',
@@ -69,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.core.context_processors.request',
             ],
         },
     },
@@ -83,9 +85,9 @@ WSGI_APPLICATION = 'choixdej.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'choixdej',
+        'NAME': 'choixdejj',
 	    'USER': 'root',
-	    'PASSWORD': 'ba7tit19""',
+	    'PASSWORD': 'platines72',
 	    'HOST': '127.0.0.1',
 	    'PORT': '',
     }
@@ -131,7 +133,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-	'/home/amine/Bureau/S2/Projet/ChoixDej/choixdej/static/',
+	'/home/ordipass/Bureau/ChoixDej/choixdej/static/',
 
 )
 

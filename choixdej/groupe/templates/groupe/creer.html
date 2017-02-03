@@ -1,16 +1,74 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html>
 
-<head>
-    <title>Choixdej</title>
-</head>
-<body id="page-top" class="index">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Team ChoixDej">
+        <title>Index - ChoixDej</title>
 
-        Creer ton propre groupe pour aller dejeuner n'importe ou !
-      </br>
-      <a href="{% url 'accueil' %}">Accueil</a>
-      <a href="{% url 'deco' %}">Deconnexion</a>
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="/static/css/radiobutton.css" rel="stylesheet" type="text/css">
+        <link href="/static/css/styles.css" rel="stylesheet" type="text/css">
+        <!-- Respond.js IE8 support of media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="/static/js/respond.min.js"></script>
+        <![endif]-->
+    </head>
 
-</body>
+    <body>
+        <header>
+            <nav class="navbar  bg-primary navbar-static-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <a href="#"><h3>  <img src="/static/images/logo.png" width="30" alt="logo"/>ChoixDej ! </h3></a>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{% url 'accueil' %}">Accueil</a></li>
+                            <li><a href="{% url 'groupe' %}">Gestion groupes </a></li>
+                            <li><a href="{% url 'vote' %}">Noter</a></li>
+                            <li><a href="{% url 'ajoutrestaurant' %}">Ajouter Resto</a></li>
+                            <li><a href="{% url 'deco' %}">Déconnexion</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </nav>
+        </header>
 
+<div id="nom-resto">
+        <div class="container creerGrp">
+          <form method="post" action="">
+            {% csrf_token %}
+            <h1> Création de groupe </h1>
+            <div class="row">
+                <div class="col-xs-12 col-md-8 col-md-offset-2 formCreationGrp">
+
+                    <div class="form-group row">
+                        <label for="example-text-input" class="col-2 col-form-label">Nom du groupe</label>
+                        <div class="col-10">
+                            <p>{{ form.nomgroupe.errors }}<label for="{{form.nomgroupe.id_for_label}}"></label>
+                            <input class="form-control" placeholder="MMA-service info" id="nomgroupe" type="text" name="nomgroupe" maxlength="50" /></p>
+                        </div>
+
+                        <div class="form-group sub2">
+                             <input class="btn btn-info" type="submit" value="Créer le groupe !" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+          </form>
+        </div>
+</div>
+    </body>
 </html>

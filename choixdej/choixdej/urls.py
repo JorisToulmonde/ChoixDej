@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^vote/', include('vote.urls')),
     url(r'^ajout/', include('ajout.urls')),
     url(r'^admin/', admin.site.urls),
+	url(r'^ratings/', include('star_ratings.urls', namespace='ratings', app_name='ratings')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

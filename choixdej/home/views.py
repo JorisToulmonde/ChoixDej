@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
-from ajout.models import Restaurant
+from index.models import Restaurant
 from django.db.models import Max
 # Create your views here.
 
 def home(request):
-    image = Restaurant.objects.raw('SELECT * FROM ajout_restaurant WHERE score = (SELECT max(score) FROM ajout_restaurant) LIMIT 1')
+    idg = request.user.id
+    image = Restaurant.objects.raw('SELECT * from index_restaurant join index_groupes using(nom_groupes) where score = (SELECT max(score) FROM index_restaurant join index_groupes using(nom_groupes) where nom_utilisateur_id=%s ) and nom_utilisateur_id=%s LIMIT 1',([idg],[idg]))
     return render(request, 'home/home.html', {'image':image})
 
 def deconnexion(request):
@@ -14,7 +15,7 @@ def deconnexion(request):
 	return redirect('../index')
 
 def groupe(request):
-    return render(request, 'groupe/rejoindre.html')
+    return redirect('../groupe')
 
 def vote(request):
     return redirect('../vote')
