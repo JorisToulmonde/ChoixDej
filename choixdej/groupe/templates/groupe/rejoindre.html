@@ -52,45 +52,43 @@
 
 
         <div class="gestionGrp">
-                    <h2> Mes Groupes </h2>
-
+                    {% if allgroupes %}
+                    <h2> Mon Groupe </h2>
+                    {% else %}
+                    <h2> Vos n'avez encore rejoins aucun groupes. </h2>
+                    {% endif %}
+                    <div class="funkyradio">
                     {% for grp in allgroupes %}
                     <div class="row test">
 
                         <div class="col xs-2 col-md-1 col-md-offset-4">
-                          
-                            <input type="radio" name={{grp.id}} id={{grp.id}} />
-                            <label for={{grp.id}}> .</label>
-
+                            <div class="funkyradio-primary">
+                                <input type="radio" name="groupe" id={{grp.id}} />
+                                <label for={{grp.id}}>.</label>
+                            </div>
                         </div>
-                        <div class="col-md-2">
-                            <h4 class="grp"> {{ grp.nom_groupes }} </h4>
-                        </div>
+                            <div class="col-md-2">
+                                <h4 class="grp"> {{ grp.nom_groupes }} </h4>
+                            </div>
 
                     </div>
-
                     {% endfor %}
-
-            <a href="{% url 'creer' %}"><button type="button" class="btn btn-primary"> Créer un Groupe !</button></a>
-
-            <h3> Pour rejoindre un groupe, rentrez le nom </h3>
-          <form method="post" action="">
-              {% csrf_token %}
-            <p>{{ form.nomgroupe.errors }}<label for="{{form.nomgroupe.id_for_label}}"></label>
-            <input id="nomgroupe" type="text" name="nomgroupe" maxlength="50" /></p>
-            <input class="btn btn-info" type="submit" value="Rejoindre le groupe" />
-          </form>
-          </div>
+                 </div>
+                {% if not allgroupes %}
+                  <a href="{% url 'creer' %}"><button type="button" class="btn btn-primary"> Créer un Groupe !</button></a>
 
 
-        <script type="text/javascript" src="/static/js/jquery.min.js"></script>
-        <script type="text/javascript" src="/static/js/jquery.rateyo.js"></script>
-        <script>
-            $(function() {
-              $().button('toggle');
-             });
+                    <h3> Pour rejoindre un groupe, rentrez le nom </h3>
+                  <form method="post" action="">
+                      {% csrf_token %}
+                    <p>{{ form.nomgroupe.errors }}<label for="{{form.nomgroupe.id_for_label}}"></label>
+                    <input id="nomgroupe" type="text" name="nomgroupe" maxlength="50" /></p>
+                    <input class="btn btn-info" type="submit" value="Rejoindre le groupe" />
+                  </form>
+                </div>
+                {% endif %}
 
-        </script>
+
 
     </body>
 </html>

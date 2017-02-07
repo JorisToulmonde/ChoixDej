@@ -8,6 +8,7 @@ from groupe.forms import CreerGroupeForm
 def rejoindre(request):
     allgroupes = Groupes.objects.filter(nom_utilisateur_id=request.user.id)
     if request.method == 'POST':
+        print(request.POST.dict())
         form = CreerGroupeForm(request.POST, request.FILES)
         if form.is_valid():
             gr = Groupes()

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 Django settings for choixdej project.
 
@@ -11,6 +12,11 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import djcelery
+
+
+from celery.schedules import crontab
+djcelery.setup_loader()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,7 +49,8 @@ INSTALLED_APPS = [
     'home',
     'groupe',
     'vote',
-    'ajout'
+    'ajout',
+    'djcelery',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -87,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'choixdejj',
 	    'USER': 'root',
-	    'PASSWORD': 'sfg22ze',
+	    'PASSWORD': 'platines72',
 	    'HOST': '127.0.0.1',
 	    'PORT': '',
     }
@@ -139,3 +146,22 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR,'restaurant')
 MEDIA_URL = '/restaurant/'
+
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/Paris'
+CELERY_ENABLE_UTC = True
+
+CELERY_TRACK_STARTED = True
+
+CELERYD_POOL_RESTARTS = True
+
+CELERYD_HIJACK_ROOT_LOGGER = False
+
+CELERY_REDIRECT_STDOUTS = True
+CELERY_REDIRECT_STDOUTS_LEVEL = 'DEBUG'
+
+BROKER_URL = 'redis://:cemotdepasseestincroyablementlongetd1ff1c1l3ouai$@127.0.0.1:6379'
+CELERY_RESULT_BACKEND = 'djcelery.backends.database:DatabaseBackend'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
