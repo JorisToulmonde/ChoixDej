@@ -31,11 +31,11 @@ def home(request):
                 return HttpResponseRedirect('../home')
 
     with connection.cursor() as cursor:
-        cursor.execute('SELECT * from index_restaurant join index_groupes using(nom_groupes) where score = (SELECT max(score) FROM index_restaurant join index_groupes using(nom_groupes) where nom_utilisateur_id=%s ) and nom_utilisateur_id=%s LIMIT 1',([idg],[idg]))
-        result = namedtuplefetchall(cursor)
-
-        if result[0].anciennete != 0:
-    	    cursor.execute("UPDATE index_restaurant SET anciennete = 0 , frequence = frequence+1 where id = %s",[result[0].id])
+    	cursor.execute('SELECT * from index_restaurant join index_groupes using(nom_groupes) where score = (SELECT max(score) FROM index_restaurant join index_groupes using(nom_groupes) where nom_utilisateur_id=%s ) and nom_utilisateur_id=%s LIMIT 1',([idg],[idg]))
+    	result = namedtuplefetchall(cursor)
+	if result:
+    		if result[0].anciennete != 0:
+    			cursor.execute("UPDATE index_restaurant SET anciennete = 0 , frequence = frequence+1 where id = %s",[result[0].id])
 
     #Renvoie le restaurant choisi a afficher sur la page home.html
     return render_to_response('home/home.html', {'image':image, 'jyvais':jyvais}, context_instance=RequestContext(request))

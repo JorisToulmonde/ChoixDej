@@ -8,7 +8,6 @@ from groupe.forms import CreerGroupeForm
 def rejoindre(request):
     allgroupes = Groupes.objects.filter(nom_utilisateur_id=request.user.id)
     if request.method == 'POST':
-        print(request.POST.dict())
         form = CreerGroupeForm(request.POST, request.FILES)
         if form.is_valid():
             gr = Groupes()
@@ -34,13 +33,11 @@ def creer(request):
             ng = form.cleaned_data["nomgroupe"]
             requete = Groupes.objects.filter(nom_groupes=ng)
             if not requete:
-                print("coucou1")
                 gr.nom_groupes = ng
                 gr.nom_utilisateur_id = request.user.id
                 gr.save()
                 return HttpResponseRedirect('confirmation.html')
             else:
-                print("coucou2")
                 return HttpResponseRedirect('existe.html')
     else:
         form =CreerGroupeForm()
