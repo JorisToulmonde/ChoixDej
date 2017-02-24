@@ -19,8 +19,8 @@ def namedtuplefetchall(cursor):
 def home(request):
 	#id de l'utilisateur connecte
     idg = request.user.id
-    image = Restaurant.objects.raw('SELECT * from index_restaurant join index_groupes using(nom_groupes) where score = (SELECT max(score) FROM index_restaurant join index_groupes using(nom_groupes) where nom_utilisateur_id=%s ) and nom_utilisateur_id=%s LIMIT 1',([idg],[idg]))
-    jyvais = Groupes.objects.raw('SELECT * FROM index_groupes JOIN auth_user ON index_groupes.nom_utilisateur_id=auth_user.id WHERE present=1 AND nom_groupes = ANY(SELECT nom_groupes FROM index_groupes WHERE nom_utilisateur_id=%s)',[idg])
+    image = Restaurant.objects.raw('SELECT * from index_restaurant join index_groupes using(nom_groupes) where favori = 1 AND score = (SELECT max(score) FROM index_restaurant join index_groupes using(nom_groupes) where nom_utilisateur_id=%s ) and nom_utilisateur_id=%s LIMIT 1',([idg],[idg]))
+    jyvais = Groupes.objects.raw('SELECT * FROM index_groupes JOIN auth_user ON index_groupes.nom_utilisateur_id=auth_user.id WHERE present=1 AND nom_groupes = ANY(SELECT nom_groupes FROM index_groupes WHERE favori = 1 AND nom_utilisateur_id=%s)',[idg])
     if request.method=="POST":
         if 'jyvais' in request.POST:
             with connection.cursor() as cursor:
@@ -32,14 +32,14 @@ def home(request):
                 return HttpResponseRedirect('../home')
 
     with connection.cursor() as cursor:
-    	cursor.execute('SELECT * from index_restaurant join index_groupes using(nom_groupes) where score = (SELECT max(score) FROM index_restaurant join index_groupes using(nom_groupes) where nom_utilisateur_id=%s ) and nom_utilisateur_id=%s LIMIT 1',([idg],[idg]))
+    	cursor.execute('SELECT * from index_restaurant join index_groupes using(nom_groupes) where favori = 1 AND score = (SELECT max(score) FROM index_restaurant join index_groupes using(nom_groupes) where favori = 1 AND nom_utilisateur_id=%s ) and nom_utilisateur_id=%s LIMIT 1',([idg],[idg]))
     	result = namedtuplefetchall(cursor)
 	if result:
     		if result[0].anciennete != 0:
     			cursor.execute("UPDATE index_restaurant SET anciennete = 0 , frequence = frequence+1 where id = %s",[result[0].id])
 
     #Renvoie le restaurant choisi a afficher sur la page home.html
-	allgroupes = Groupes.objects.filter(nom_utilisateur_id=request.user.id)
+	allgroupes = Groupes.objects.filter(nom_utilisateur_id=request.user.id,favori = 1)
     return render_to_response('home/home.html', {'image':image, 'jyvais':jyvais, 'allgroupes':allgroupes, 'heure':datetime.now()}, context_instance=RequestContext(request))
 
 def deconnexion(request):

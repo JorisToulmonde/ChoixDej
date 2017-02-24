@@ -25,7 +25,7 @@ def rejoindre(request):
 
         if 'quitter' in request.POST:
             with connection.cursor() as cursor:
-                cursor.execute("DELETE FROM index_groupes WHERE nom_utilisateur_id = %s",[idg])
+                cursor.execute("DELETE FROM index_groupes WHERE favori = 1 AND nom_utilisateur_id = %s",[idg])
                 return HttpResponseRedirect('../groupe')
         elif 'rejoindre' in request.POST:
             form = CreerGroupeForm(request.POST, request.FILES)

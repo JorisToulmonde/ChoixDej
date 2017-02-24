@@ -27,7 +27,7 @@ def ajout(request):
             restaurant.anciennete = 10
             with connection.cursor() as cursor:
             #cursor = connections['choixdejj'].cursor()
-                cursor.execute('SELECT nom_groupes FROM index_groupes where nom_utilisateur_id = %s', [idg])
+                cursor.execute('SELECT nom_groupes FROM index_groupes where favori = 1 AND  nom_utilisateur_id = %s', [idg])
                 result = namedtuplefetchall(cursor)
                 restaurant.nom_groupes = result[0].nom_groupes
             restaurant.save()
