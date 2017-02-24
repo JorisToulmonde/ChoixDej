@@ -70,8 +70,11 @@
                             <div class="col-md-2">
                                 <h4 class="grp"> {{ grp.nom_groupes }} </h4>
                             </div>
+                        </div>
+                             <form method="post" action="">
+                                {% csrf_token %}
+                            <input class="btn btn-info" type="submit" name="quitter" value="Quitter le groupe" /></form>
 
-                    </div>
                     {% endfor %}
                  </div>
                 {% if not allgroupes %}

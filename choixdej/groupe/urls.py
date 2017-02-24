@@ -6,6 +6,6 @@ urlpatterns = [
     url(r'^creer.html$', views.creer, name="creer"),
 	url(r'^confirmation.html$', views.confirmation, name="confirmation"),
 	url(r'^confirmationrej.html$', views.confirmationrej, name="confirmationrej"),
-	url(r'^existedeja.html$', views.existedeja, name="existedeja"),
+	url(r'^existepas.html$', views.existepas, name="existepas"),
 	url(r'^existe.html$', views.existe, name="existe"),
 ]

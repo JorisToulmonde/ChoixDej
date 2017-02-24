@@ -6,6 +6,7 @@ from django.db.models import Max
 from django.db import connection
 from collections import namedtuple
 from django.template import Context, RequestContext
+from datetime import datetime
 from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
@@ -38,7 +39,8 @@ def home(request):
     			cursor.execute("UPDATE index_restaurant SET anciennete = 0 , frequence = frequence+1 where id = %s",[result[0].id])
 
     #Renvoie le restaurant choisi a afficher sur la page home.html
-    return render_to_response('home/home.html', {'image':image, 'jyvais':jyvais}, context_instance=RequestContext(request))
+	allgroupes = Groupes.objects.filter(nom_utilisateur_id=request.user.id)
+    return render_to_response('home/home.html', {'image':image, 'jyvais':jyvais, 'allgroupes':allgroupes, 'heure':datetime.now()}, context_instance=RequestContext(request))
 
 def deconnexion(request):
 	logout(request)
