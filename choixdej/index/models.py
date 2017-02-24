@@ -8,6 +8,7 @@ from django.conf import settings
 class Groupes(models.Model):
     nom_utilisateur = models.ForeignKey(User)
     nom_groupes = models.CharField(max_length=45, default="")  # Field name made lowercase.
+    descriptif = models.CharField(max_length=144, default="") 
     favori = models.BooleanField(default=False)
     present = models.BooleanField(default=False)
 
