@@ -17,8 +17,10 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth.views import password_reset, password_reset_done, password_reset_confirm, password_reset_complete
 
 urlpatterns = [
+    url('^', include('django.contrib.auth.urls')),
     url(r'^index/', include('index.urls')),
     url(r'^inscription/', include('inscription.urls')),
     url(r'^home/', include('home.urls')),
