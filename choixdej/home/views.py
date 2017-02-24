@@ -20,15 +20,15 @@ def home(request):
 	#id de l'utilisateur connecte
     idg = request.user.id
     image = Restaurant.objects.raw('SELECT * from index_restaurant join index_groupes using(nom_groupes) where score = (SELECT max(score) FROM index_restaurant join index_groupes using(nom_groupes) where nom_utilisateur_id=%s ) and nom_utilisateur_id=%s LIMIT 1',([idg],[idg]))
-    jyvais = Groupes.objects.raw('SELECT * FROM index_groupes JOIN auth_user ON index_groupes.nom_utilisateur_id=auth_user.id WHERE favori=1 AND nom_groupes = ANY(SELECT nom_groupes FROM index_groupes WHERE nom_utilisateur_id=%s)',[idg])
+    jyvais = Groupes.objects.raw('SELECT * FROM index_groupes JOIN auth_user ON index_groupes.nom_utilisateur_id=auth_user.id WHERE present=1 AND nom_groupes = ANY(SELECT nom_groupes FROM index_groupes WHERE nom_utilisateur_id=%s)',[idg])
     if request.method=="POST":
         if 'jyvais' in request.POST:
             with connection.cursor() as cursor:
-                cursor.execute("UPDATE index_groupes SET favori = 1 WHERE nom_utilisateur_id = %s",[idg])
+                cursor.execute("UPDATE index_groupes SET present = 1 WHERE nom_utilisateur_id = %s",[idg])
                 return HttpResponseRedirect('../home')
         elif 'jyvaispas' in request.POST:
             with connection.cursor() as cursor:
-                cursor.execute("UPDATE index_groupes SET favori = 0 WHERE nom_utilisateur_id = %s",[idg])
+                cursor.execute("UPDATE index_groupes SET present = 0 WHERE nom_utilisateur_id = %s",[idg])
                 return HttpResponseRedirect('../home')
 
     with connection.cursor() as cursor:

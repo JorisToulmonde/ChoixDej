@@ -9,6 +9,7 @@ class Groupes(models.Model):
     nom_utilisateur = models.ForeignKey(User)
     nom_groupes = models.CharField(max_length=45, default="")  # Field name made lowercase.
     favori = models.BooleanField(default=False)
+    present = models.BooleanField(default=False)
 
     class Meta:
         unique_together = ('nom_utilisateur', 'nom_groupes',)

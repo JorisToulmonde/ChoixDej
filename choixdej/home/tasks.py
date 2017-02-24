@@ -15,5 +15,5 @@ def hello():
 		#Reactualise le score des restaurants
 		cursor.execute("UPDATE index_restaurant, star_ratings_rating SET index_restaurant.score = index_restaurant.anciennete - index_restaurant.frequence + 3 * star_ratings_rating.average where index_restaurant.id = star_ratings_rating.object_id")
 
-		#Remet les favoris a 0
-		cursor.execute("UPDATE index_groupes SET favori = 0")
+		#Remet les prensences a 0
+		cursor.execute("UPDATE index_groupes SET present = 0")
