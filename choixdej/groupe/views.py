@@ -14,12 +14,20 @@ def rejoindre(request):
     allgroupes = Groupes.objects.filter(nom_utilisateur_id=request.user.id)
     idg = request.user.id
     if request.method == 'POST':
+        i = 0
+        for grp in allgroupes:
+            if str(grp.id) in request.POST:   
+                with connection.cursor() as cursor:
+                    cursor.execute("UPDATE index_groupes SET favori = 1 WHERE id = %s",[grp.id])
+                    cursor.execute("UPDATE index_groupes SET favori = 0 WHERE id <> %s",[grp.id])
+                    #Page avec vous avez bien mis ce groupe en fav'
+                    return HttpResponseRedirect('../groupe')
+
         if 'quitter' in request.POST:
             with connection.cursor() as cursor:
                 cursor.execute("DELETE FROM index_groupes WHERE nom_utilisateur_id = %s",[idg])
                 return HttpResponseRedirect('../groupe')
-        else:
-            print(request.POST.dict())
+        elif 'rejoindre' in request.POST:
             form = CreerGroupeForm(request.POST, request.FILES)
             if form.is_valid():
                 gr = Groupes()
