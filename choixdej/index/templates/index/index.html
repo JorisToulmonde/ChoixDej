@@ -20,7 +20,7 @@
     <body>
         <header>
 
-            <h2><img src="/static/images/logo.png" width="150" alt="logo"/>ChoixDej ! </h2>
+            <img src="/static/images/logo2.png" width="300" alt="logo" id="logo"/>
         </header>
 
 
@@ -29,27 +29,27 @@
               <form method="post" action="">
                 {% csrf_token %}
                 <div class="col-xs-12 col-md-12 connexion">
-                    <h1> Se connecter </h1>
                     <div class="form-group row">
-                        <label for="example-text-input" class="col-2 col-form-label">Identifiant / Mail</label>
+                       
                         <div class="col-10">
-                              <p>{{ form.username.errors }}<label for="{{form.username.id_for_label}}"></label>
-                              <input type="text" class="form-control" placeholder="j.deschamps@gmail.com" id= {{ form.username }}
+                              <p>{{ form.username.errors }}
+                              <input type="text" class="form-control" placeholder="Username" id= {{ form.username }}
                               <p class="help-block text-danger"></p>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="example-password-input" class="col-2 col-form-label">Mot de Passe</label>
+
                         <div class="col-10">
-                              <p>{{ form.password.errors }}<label for="{{form.password.id_for_label}}"></label>
-                              <input type="password" class="form-control" placeholder="Ton mot de passe *" id= {{ form.password }}
+                              <p>{{ form.password.errors }}
+                              <input type="password" class="form-control" placeholder="Mot de passe" id= {{ form.password }}
                                 <p class="help-block text-danger"></p>
                         </div>
                     </div>
 
                       <input class="btn btn-info" type="submit" value="Se connecter" />
                       <a href="/inscription"><button type="button" class="btn btn-warning">Pas de compte ? Inscris toi ! </button></a>
+                      <a href="{% url 'password_reset' %}"><button type="button" class="btn btn-success">Mot de pass oublié... </button></a>
               </form>
 
 
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-        <a href="{% url 'password_reset' %}">Mot de pass oublié...</a>
+        
 
     </body>
 </html>

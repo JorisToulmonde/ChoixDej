@@ -1,36 +1,45 @@
 body{
-	background:url("../images/wallpaper.jpg") no-repeat fixed center;
-	background-size: 1920px 1080px;
+	background:url("../images/wallpaper2.jpg") no-repeat fixed center;
+	background-size: cover;
+	margin:0;
+	padding: 0;
 	color : white;
-	padding : 15px;
-	width:100%;
 
 }
 
+.tokens{
+	margin-left: 27%;
+	margin-top:50px;
+	margin-bottom: 20px;
+}
+
+#logo{
+	display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:40px;
+}
 
 .container{
 	width:100%;
-	margin:0 ;
-	padding-left: 5%;
-	padding-right:5%;
+	padding-left: 15%;
+	padding-right:15%;
 }
 
-.inscription{
-	background : rgba(50,50,50,0.6);
-	border-radius: 20%;
+.form-group{
+	padding:10px;
+}
+
+.form-control{
+	height: 50px;
+}
+
+
+h2{
 	text-align: center;
-	padding: 50px;
+	font-weight: bold
+	margin-bottom: 40px;
 }
-
-
-.connexion{
-	background : rgba(50,50,50,0.6);
-	border-radius: 20%;
-	text-align: center;
-	padding: 50px;
-}
-
-
 
 ::-webkit-input-placeholder {
    text-align: center;

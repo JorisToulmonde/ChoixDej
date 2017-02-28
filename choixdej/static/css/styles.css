@@ -1,6 +1,7 @@
 body{
 	background : #efefef;
 	width:100%;
+	font-family: 'Open Sans', sans-serif;
 
 }
 
@@ -107,4 +108,12 @@ body{
 
 .formCreationGrp{
 	margin-top: 5%;
+}
+
+
+.nomGrpRejoindre{
+	margin-left:auto;
+	margin-right:auto;
+	margin:10px;
+	height:50px;
 }

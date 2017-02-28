@@ -9,7 +9,7 @@
 
 
 
-
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="/static/css/styles.css" rel="stylesheet" type="text/css">
         <link href="/static/css/radiobutton.css" rel="stylesheet" type="text/css">
@@ -57,16 +57,17 @@
                     {% else %} 
                     <h2> Vos n'avez encore rejoins aucun groupes. </h2>
                     {% endif %} -->
-                    <h2> Cliquez votre groupe favori </h2>
+                    <h2> Cliquez sur votre groupe favori </h2>
                     <div class="funkyradio">
-                    {% for grp in allgroupes %}
+                        {% for grp in allgroupes %}
+                    
                     <div class="row test">
 
-                        <div class="col xs-2 col-md-1 col-md-offset-4">
+                        <div>
                             <div class="funkyradio-primary">
                                 <form method="post" action="">
                                      {% csrf_token %}
-                                <input class="btn btn-info" type="submit" name={{grp.id}} value={{ grp.nom_groupes }} /></form>
+                                <input class="btn btn-warning nomGrpRejoindre" type="submit" name={{grp.id}} value={{ grp.nom_groupes }} /></form>
                             </div>
                         </div>
                            
