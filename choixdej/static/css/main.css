@@ -34,10 +34,12 @@ body{
 
 }
 
-.bg-primary .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    background-color: red;
-    color: #FFC0CB;
+.bg-primary .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:visited {
+    color: #FFF;
+    font-weight: bold;
+    background-color: transparent;
 }
+
 
 #nom-resto{
     text-align: center;
@@ -106,4 +108,14 @@ body{
 
 .formCreationGrp{
 	margin-top: 5%;
+}
+
+
+
+.nomRestoVote{
+	float:left;
+}
+
+.etoileRestoVote{
+	float:left;
 }
