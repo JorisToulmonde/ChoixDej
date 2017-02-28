@@ -57,6 +57,7 @@
                     {% else %} 
                     <h2> Vos n'avez encore rejoins aucun groupes. </h2>
                     {% endif %} -->
+                    <h2> Cliquez votre groupe favori </h2>
                     <div class="funkyradio">
                     {% for grp in allgroupes %}
                     <div class="row test">
@@ -65,18 +66,17 @@
                             <div class="funkyradio-primary">
                                 <form method="post" action="">
                                      {% csrf_token %}
-                                <input class="btn btn-info" type="submit" name={{grp.id}} value="Choisir ce groupe en favori" /></form>
+                                <input class="btn btn-info" type="submit" name={{grp.id}} value={{ grp.nom_groupes }} /></form>
                             </div>
                         </div>
-                            <div class="col-md-2">
-                                <h4 class="grp"> {{ grp.nom_groupes }}</h4>
-                            </div>
+                           
                         </div>
-                             <form method="post" action="">
-                                {% csrf_token %}
-                            <input class="btn btn-info" type="submit" name="quitter" value="Quitter le groupe" /></form>
-
+                           
                     {% endfor %}
+                      <form method="post" action="">
+                                {% csrf_token %}
+                            <input class="btn btn-info" type="submit" name="quitter" value="Quitter votre groupe favori" /></form>
+
                  </div>
                
                   <a href="{% url 'creer' %}"><button type="button" class="btn btn-primary"> Créer un Groupe !</button></a>

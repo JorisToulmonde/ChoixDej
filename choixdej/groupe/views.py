@@ -19,7 +19,7 @@ def rejoindre(request):
             if str(grp.id) in request.POST:   
                 with connection.cursor() as cursor:
                     cursor.execute("UPDATE index_groupes SET favori = 1 WHERE id = %s",[grp.id])
-                    cursor.execute("UPDATE index_groupes SET favori = 0 WHERE id <> %s",[grp.id])
+                    cursor.execute("UPDATE index_groupes SET favori = 0 WHERE id <> %s AND nom_utilisateur_id = %s",[grp.id,idg])
                     #Page avec vous avez bien mis ce groupe en fav'
                     return HttpResponseRedirect('../groupe')
 

@@ -94,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'choixdejj',
 	    'USER': 'root',
-	    'PASSWORD': 'platines72',
+	    'PASSWORD': 'sfg22ze',
 	    'HOST': '127.0.0.1',
 	    'PORT': '',
     }
@@ -147,7 +147,7 @@ if DEBUG:
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-	'/home/ordipass/Bureau/ChoixDej/choixdej/static/',
+	'/home/victorien/Documents/Info/ChoixDej/choixdej/static/',
 
 )
 
