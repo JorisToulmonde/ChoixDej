@@ -52,12 +52,14 @@
 
 
         <div class="gestionGrp">
-                   <!-- {% if allgroupes %}
-                    <h2> Mon Groupe </h2>
-                    {% else %} 
-                    <h2> Vos n'avez encore rejoins aucun groupes. </h2>
-                    {% endif %} -->
-                    <h2> Cliquez sur votre groupe favori </h2>
+                  {% if allgroupes %}
+                   
+                    
+                    {% for fav in grpfav %}
+                    <h2> Votre groupe favori est {{fav.nom_groupes}} </h2>
+                    
+                    {% endfor %}
+                    <h2> Cliquez sur le groupe que vous voulez en favori</h2>
                     <div class="funkyradio">
                         {% for grp in allgroupes %}
                     
@@ -79,7 +81,8 @@
                             <input class="btn btn-info" type="submit" name="quitter" value="Quitter votre groupe favori" /></form>
 
                  </div>
-               
+                {% endif %}
+
                   <a href="{% url 'creer' %}"><button type="button" class="btn btn-primary"> Créer un Groupe !</button></a>
 
 

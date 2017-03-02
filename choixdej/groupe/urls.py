@@ -8,4 +8,5 @@ urlpatterns = [
 	url(r'^confirmationrej.html$', views.confirmationrej, name="confirmationrej"),
 	url(r'^existepas.html$', views.existepas, name="existepas"),
 	url(r'^existe.html$', views.existe, name="existe"),
+	url(r'^fav.html$',views.fav,name='fav'),
 ]

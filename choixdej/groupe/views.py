@@ -12,16 +12,16 @@ from django.views.decorators.csrf import csrf_protect
 @csrf_protect
 def rejoindre(request):
     allgroupes = Groupes.objects.filter(nom_utilisateur_id=request.user.id)
+    grpfav = Groupes.objects.filter(nom_utilisateur_id=request.user.id,favori=1)
     idg = request.user.id
     if request.method == 'POST':
-        i = 0
         for grp in allgroupes:
             if str(grp.id) in request.POST:   
                 with connection.cursor() as cursor:
                     cursor.execute("UPDATE index_groupes SET favori = 1 WHERE id = %s",[grp.id])
                     cursor.execute("UPDATE index_groupes SET favori = 0 WHERE id <> %s AND nom_utilisateur_id = %s",[grp.id,idg])
                     #Page avec vous avez bien mis ce groupe en fav'
-                    return HttpResponseRedirect('../groupe')
+                    return HttpResponseRedirect('../groupe/fav.html')
 
         if 'quitter' in request.POST:
             with connection.cursor() as cursor:
@@ -42,7 +42,7 @@ def rejoindre(request):
                     return HttpResponseRedirect('confirmationrej.html')
     else:
         form =CreerGroupeForm()
-    return render_to_response('groupe/rejoindre.html', {'allgroupes':allgroupes}, context_instance=RequestContext(request))
+    return render_to_response('groupe/rejoindre.html', {'allgroupes':allgroupes , 'grpfav':grpfav}, context_instance=RequestContext(request))
 
 
 def creer(request):
@@ -78,3 +78,7 @@ def existepas(request):
 
 def confirmationrej(request):
     return render(request, 'groupe/confirmationrej.html')
+
+def fav(request):
+    grpfav = Groupes.objects.filter(nom_utilisateur_id=request.user.id,favori=1)
+    return render_to_response('groupe/fav.html', {'grpfav':grpfav}, context_instance=RequestContext(request))
