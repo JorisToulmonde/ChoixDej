@@ -1,3 +1,5 @@
+/*
+
 body{
 	background : #efefef;
 	width:100%;
@@ -67,11 +69,11 @@ body{
    text-align: center;
 }
 
-:-moz-placeholder { /* Firefox 18- */
+:-moz-placeholder {   
    text-align: center;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
+::-moz-placeholder {   
    text-align: center;
 }
 
@@ -119,4 +121,128 @@ body{
 
 .etoileRestoVote{
 	float:left;
+}
+
+
+//////////////////////////////////////////////////////////
+
+*/
+body{
+	background :white;
+	width:100%;
+
+}
+
+
+.container{
+	width:40%;
+	margin:auto ;
+	padding-left: 5%;
+	padding-right:5%;
+}
+
+.titre-resto
+{
+	color:#f0ad4e;
+	text-align: center;
+}
+
+.inscription{
+	background : rgba(50,50,50,0.6);
+	border-radius: 20%;
+	text-align: center;
+	padding: 50px;
+}
+
+
+.connexion{
+	background : rgba(50,50,50,0.6);
+	border-radius: 20%;
+	text-align: center;
+	padding: 50px;
+}
+
+.navbar-static-top
+{
+	background: white;
+}
+
+
+.navbar a{
+    color : black;
+    text-decoration: underline;
+
+}
+
+.bg-primary .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:visited {
+    color: #FFF;
+    font-weight: bold;
+    background-color: chocolate;
+}
+
+#nom-resto{
+    text-align: center;
+}
+
+#resto{
+    width:100%;
+    padding-left:auto;
+    margin: auto;
+}
+.go{
+    text-align: center;
+}
+
+.go .btn {
+    width: 20%;
+}
+
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;
+}
+
+.sub{
+	text-align: center;
+}
+
+.grp{
+	vertical-align: middle;
+	padding-top: 20px;
+}
+
+
+.gestionGrp{
+	text-align: center;
+	width: auto;
+}
+
+.funkyradio{
+	margin-bottom: 5%;
+}
+
+.creerGrp{
+	text-align: center;
+	padding:20px;
+}
+
+.sub2{
+	margin-top: 5%;
+}
+
+#nomGrp{
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.formCreationGrp{
+	margin-top: 5%;
 }

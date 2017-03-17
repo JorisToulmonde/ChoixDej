@@ -1,3 +1,5 @@
+
+/*
 body{
 	background:url("../images/wallpaper2.jpg") no-repeat fixed center;
 	background-size: cover;
@@ -45,14 +47,94 @@ h2{
    text-align: center;
 }
 
-:-moz-placeholder { /* Firefox 18- */
+:-moz-placeholder { 
    text-align: center;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
+::-moz-placeholder {  
    text-align: center;
 }
 
 .sub{
 	text-align: center;
+}
+
+
+///////////////////////////////////////////////////////
+*/
+
+body{
+	/*background-color: turquoise;*/
+	background-size: 1920px 1080px;
+	color : white;
+	padding : 15px;
+	width:100%;
+	weight:auto;
+
+}
+
+
+.container{
+	width:50%;
+	margin:auto;
+	padding-left: 5%;
+	padding-right:5%;
+}
+
+
+.col-form-label
+{
+	color:black;
+}
+
+h1
+{
+	color: #f0ad4e;
+}
+
+.inscription{
+	/*background : rgba(50,50,50,0.6);*/
+	border-radius: 20%;
+	text-align: center;
+	padding: 20px;
+	margin: auto;
+	position: relative;
+}
+
+.form-control
+{
+	width: 50%;
+	margin: auto;
+}
+
+.connexion{
+	/*background : rgba(50,50,50,0.6);*/
+	/*background-color: rgb(20,70,60);*/
+	border-radius: 20%;
+	text-align: center;
+	padding: 50px;
+	position: relative;
+}
+
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+.sub{
+	text-align: center;
+	margin: auto;
+}
+
+.mdp
+{
+	color:red;
 }
